@@ -1,13 +1,15 @@
 import { model } from './model';
+import { Site } from './classes/site';
+import { Sidebar } from './classes/sidebar';
 import './styles/main.css';
-import { templates } from './templates';
 
-const site = document.querySelector('#site');
+const site = new Site('#site');
 
-model.forEach((block) => {
-  const generate = templates[block.type];
-  if (generate) {
-    const html = generate(block);
-    site.insertAdjacentHTML('beforeend', html);
-  }
-});
+const updateCallback = (newBlock) => {
+  model.push(newBlock);
+  site.render(model);
+};
+
+new Sidebar('#panel', updateCallback);
+
+site.render(model);

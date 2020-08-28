@@ -1,14 +1,23 @@
-import { Block, TitleBlock } from './classes/blocks';
+import {
+  TitleBlock,
+  ImageBlock,
+  TextBlock,
+  TextColumnsBlock,
+} from './classes/blocks';
+
+import { css } from './utils';
 
 export const model = [
   new TitleBlock('Test Title', {
-    styles: 'background: darkred; color: #fff;',
+    styles: css({
+      'text-align': 'center',
+    }),
   }),
-  new Block('image', '', { alt: 'img', imageStyles: '' }),
-  new Block('text', 'Lorem ajfokja jldsaj fkldsj kl', {
-    styles: 'background: darkblue; color: yellow',
+  new ImageBlock('', { alt: 'img', imageStyles: '' }),
+  new TextBlock('Lorem ajfokja jldsaj fkldsj kl', {
+    styles: css({}),
   }),
-  new Block('textColumns', ['1 text', '2 text', '3 text'], {
-    styles: 'padding: 1  rem',
+  new TextColumnsBlock(['1 text', '2 text', '3 text'], {
+    styles: css(),
   }),
 ];
