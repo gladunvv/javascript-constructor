@@ -4,6 +4,8 @@
 # testing
 /coverage
 
+*.firebase
+
 # production
 /build
 /dist
